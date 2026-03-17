@@ -1,34 +1,25 @@
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
+
+import { Header } from "@/widgets/header";
 
 import { useLocale } from "@/shared/lib/hooks";
-import { TChildren } from "@/shared/types/common";
+import { cn } from "@/shared/lib/utils";
 
-type TProps = {
-  children: ReactNode;
-  mainTagClasses?: string;
-  ExtraHeaderContent?: TChildren;
-  ExtraFooterContent?: TChildren;
+type TProps = PropsWithChildren & {
+  className?: string;
 };
 
-export const Layout: FC<TProps> = ({
-  children,
-  mainTagClasses,
-  ExtraHeaderContent,
-  ExtraFooterContent,
-}) => {
+export const Layout: FC<TProps> = ({ children, className }) => {
   useLocale();
 
   return (
     <div className="bg-gray-200 overflow-hidden flex flex-col h-screen">
-      {ExtraHeaderContent}
-
+      <Header />
       <main
-        className={`flex-grow overflow-y-auto p-4 app-scroll ${mainTagClasses}`}
+        className={cn(`flex-grow overflow-y-auto p-4 app-scroll`, className)}
       >
         {children}
       </main>
-
-      {ExtraFooterContent}
     </div>
   );
 };

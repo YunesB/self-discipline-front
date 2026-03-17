@@ -3,7 +3,7 @@ import { persist } from "effector-storage/local";
 
 import { $language, changeLanguageFx } from "@/app/model";
 
-import { LANGUAGE_STORAGE_KEY } from "@/shared/lib/constants";
+import { LANGUAGE_STORAGE_KEY } from "@/shared/lib/constants/common";
 
 const changeLanguage = createEvent<string>();
 
@@ -13,8 +13,8 @@ sample({
 });
 
 persist({
-  store: $language,
   key: LANGUAGE_STORAGE_KEY,
+  store: $language,
 });
 
 export const $$langSwitcherModel = {
