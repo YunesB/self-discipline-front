@@ -1,0 +1,17 @@
+{
+  "WELCOME": "Қош келдіңіз!",
+  "TO_HOME": "Басты бетке",
+
+  "AUTH": {
+    "TITLE": "Авторизация",
+    "SUBTITLE_1": "Жүйеге кіріңіз",
+    "SUBTITLE_2": "немесе тіркеліңіз"
+  },
+
+  "REQUEST_ERROR": "Сұрау қатесі",
+  "INTERNAL_SERVER_ERROR": "Сервердің ішкі қатесі",
+  "PAGE_NOT_FOUND": "Бет табылмады",
+  "GO_TO_PAGE": "Бетке өту",
+  "ALL_RIGHTS_RESERVED": "Барлық құқықтар қорғалған",
+  "ACCESS_DENIED": "Қол жетімділік шектелген"
+}
