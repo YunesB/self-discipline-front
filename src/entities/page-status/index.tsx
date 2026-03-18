@@ -1,7 +1,10 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
+import { Link } from "atomic-router-react";
 import { CircleX, FolderSearch } from "lucide-react";
+
+import { routes } from "@/shared/routing/shared";
 
 const iconProps = {
   className: "size-24",
@@ -16,8 +19,8 @@ const OPTIONS = {
   404: {
     title: "PAGE_NOT_FOUND",
     icon: <FolderSearch {...iconProps} />,
-    color: "text-brand",
-    iconColor: "text-brand/60",
+    color: "text-blue-400",
+    iconColor: "text-blue-400/60",
   },
   500: {
     title: "INTERNAL_SERVER_ERROR",
@@ -36,9 +39,9 @@ export const PageStatus: FC<TProps> = ({ type = 404 }) => {
       <div className="w-full flex flex-col items-center justify-center gap-y-2">
         <h1 className={`font-semibold text-3xl ${color}`}>{type}</h1>
         <p className="text-lg">{t(title)}</p>
-        <a href="" className={`underline ${color}`}>
+        <Link to={routes.home} className={`underline ${color}`}>
           {t("TO_HOME")}
-        </a>
+        </Link>
       </div>
 
       <span className={iconColor}>{icon}</span>
