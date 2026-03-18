@@ -1,20 +1,24 @@
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
 
-import { Counter } from "@/entities/counter-button/ui";
+import { useUnit } from "effector-react";
+
+import { $$homeModel } from "./model";
+import { Calendar } from "./ui/calendar";
+import { Weekdays } from "./ui/weekdays";
 
 export const HomeRoute: FC = () => {
-  const { t } = useTranslation();
+  const [currentMonth, currentYear] = useUnit([
+    $$homeModel.$currentMonth,
+    $$homeModel.$currentYear,
+  ]);
 
   return (
-    <div className="size-full flex flex-col items-center justify-center pb-[200px]">
-      <div className="flex flex-col items-center justify-center max-w-[400px] w-full px-4 border shadow-lg rounded-lg p-8 animate-slide-down bg-white">
-        <h1 className="text-3xl text-center max-w-[80%] font-semibold mb-10">
-          {t("WELCOME")}
-        </h1>
-
-        <Counter />
-      </div>
+    <div className="mx-auto w-fit">
+      <h1 className="mb-4 font-semibold text-center">
+        {currentMonth}, {currentYear}
+      </h1>
+      <Weekdays />
+      <Calendar />
     </div>
   );
 };
