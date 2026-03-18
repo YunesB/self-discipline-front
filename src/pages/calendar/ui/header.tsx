@@ -3,16 +3,16 @@ import { FC } from "react";
 import { useUnit } from "effector-react";
 import { CalendarSync, CalendarSearch } from "lucide-react";
 
-import { $$homeModel } from "../model";
+import { $$calendarModel } from "../model";
 
 import { Button } from "@/shared/ui/atoms";
 
 export const CalendarHeader: FC = () => {
   const [currentMonth, currentYear, resetDate, openModal] = useUnit([
-    $$homeModel.$currentMonth,
-    $$homeModel.$currentYear,
-    $$homeModel.resetDate,
-    $$homeModel.openModal,
+    $$calendarModel.$currentMonth,
+    $$calendarModel.$currentYear,
+    $$calendarModel.resetDate,
+    $$calendarModel.openModal,
   ]);
 
   return (

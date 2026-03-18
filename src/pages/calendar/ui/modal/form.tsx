@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { useForm } from "effector-forms";
 
-import { $$homeModel } from "../../model";
+import { $$calendarModel } from "../../model";
 
 import { MONTHS, TMonths, CURRENT_YEAR } from "@/shared/lib/constants/calendar";
 import { Button, Select } from "@/shared/ui/atoms";
@@ -13,7 +13,7 @@ const YEARS = Array.from(
 );
 
 export const SearchMonthForm: FC = () => {
-  const { fields, submit } = useForm($$homeModel.$$datesForm);
+  const { fields, submit } = useForm($$calendarModel.$$datesForm);
 
   return (
     <form

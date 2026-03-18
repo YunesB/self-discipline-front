@@ -1,6 +1,7 @@
 import { Layout } from "@/layouts";
 import { AuthErrorRoute } from "@/pages/auth-error";
-import { HomeRoute } from "@/pages/home";
+import { CalendarPage } from "@/pages/calendar";
+import { HomePage } from "@/pages/home";
 import { NotFoundPage } from "@/pages/not-found";
 import { createRoutesView } from "atomic-router-react";
 
@@ -10,7 +11,11 @@ import { createView } from "./shared/create-view";
 const CommonLayoutPages = [
   {
     route: routes.home,
-    view: HomeRoute,
+    view: HomePage,
+  },
+  {
+    route: routes.calendar,
+    view: CalendarPage,
   },
 ];
 

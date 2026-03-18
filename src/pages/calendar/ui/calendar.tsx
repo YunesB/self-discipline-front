@@ -3,7 +3,7 @@ import { FC, ButtonHTMLAttributes } from "react";
 import { useUnit } from "effector-react";
 import { LucideIcon, ChevronLeft, ChevronRight } from "lucide-react";
 
-import { $$homeModel } from "../model";
+import { $$calendarModel } from "../model";
 
 import { cn } from "@/shared/lib/utils";
 
@@ -24,9 +24,9 @@ const CommonButton: FC<
 
 export const Calendar: FC = () => {
   const [currentCalendar, goToNextMonth, goToPreviousMonth] = useUnit([
-    $$homeModel.$currentCalendar,
-    $$homeModel.goToNextMonth,
-    $$homeModel.goToPreviousMonth,
+    $$calendarModel.$currentCalendar,
+    $$calendarModel.goToNextMonth,
+    $$calendarModel.goToPreviousMonth,
   ]);
 
   return (

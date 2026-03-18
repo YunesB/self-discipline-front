@@ -2,15 +2,15 @@ import { FC } from "react";
 
 import { useUnit } from "effector-react";
 
-import { $$homeModel } from "../../model";
+import { $$calendarModel } from "../../model";
 import { SearchMonthForm } from "./form";
 
 import { Dialog } from "@/shared/ui/atoms";
 
 export const SearchModal: FC = () => {
   const [isOpen, closeModal] = useUnit([
-    $$homeModel.$isModalOpen,
-    $$homeModel.closeModal,
+    $$calendarModel.$isModalOpen,
+    $$calendarModel.closeModal,
   ]);
 
   return (
