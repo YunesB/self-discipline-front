@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 import { sample, combine, createApi, createEvent, createStore } from "effector";
 import { createForm } from "effector-forms";
 import { spread } from "patronum";
@@ -15,11 +14,10 @@ import { chainAppLoaded } from "@/shared/routing/shared/app-loaded-chain";
 
 const appLoadedRoute = chainAppLoaded(routes.calendar);
 
-const $currentMonth = createStore(dayjs().format("MMMM"));
-const $currentYear = createStore(dayjs().year());
-
+const $currentMonth = createStore(CURRENT_MONTH_NAME);
+const $currentYear = createStore(CURRENT_YEAR);
 const $currentCalendar = combine($currentMonth, $currentYear, (month, year) =>
-  generateMonthCalendar(month as TMonths, year),
+  generateMonthCalendar(month, year),
 );
 
 const $isModalOpen = createStore(false);
@@ -35,13 +33,13 @@ const goToYear = createEvent<number>();
 const resetDate = createEvent();
 
 $currentMonth.on(goToNextMonth, (currentMonth) => {
-  const currentMonthIndex = MONTHS.indexOf(currentMonth as TMonths);
+  const currentMonthIndex = MONTHS.indexOf(currentMonth);
   const nextMonthIndex = (currentMonthIndex + 1) % MONTHS.length;
   return MONTHS[nextMonthIndex];
 });
 
 $currentMonth.on(goToPreviousMonth, (currentMonth) => {
-  const currentMonthIndex = MONTHS.indexOf(currentMonth as TMonths);
+  const currentMonthIndex = MONTHS.indexOf(currentMonth);
   const previousMonthIndex =
     (currentMonthIndex - 1 + MONTHS.length) % MONTHS.length;
   return MONTHS[previousMonthIndex];

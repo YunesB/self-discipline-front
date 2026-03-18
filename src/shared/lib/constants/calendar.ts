@@ -28,6 +28,8 @@ const WEEKDAYS = [
   "Sunday",
 ] as const;
 
+const HOLIDAYS: TDayOfWeek[] = ["Saturday", "Sunday"];
+
 const MONTHS = [
   "January",
   "February",
@@ -150,17 +152,24 @@ const getMonthIndex = (month: TMonths): number => MONTHS.indexOf(month);
 export {
   MONTHS,
   WEEKDAYS,
+  HOLIDAYS,
   CURRENT_YEAR,
-  type TMonths,
   CALENDAR_DATA,
+  CURRENT_MONTH_NAME,
+  CURRENT_MONTH_CALENDAR,
+};
+
+export {
   getMonthIndex,
   getMonthByIndex,
-  type TDayOfWeek,
-  type TCalendarDay,
-  type TCalendarCell,
   getCurrentCalendar,
-  CURRENT_MONTH_NAME,
   generateMonthCalendar,
-  CURRENT_MONTH_CALENDAR,
-  type TEmptyCalendarCell,
+};
+
+export type {
+  TMonths,
+  TDayOfWeek,
+  TCalendarDay,
+  TCalendarCell,
+  TEmptyCalendarCell,
 };
