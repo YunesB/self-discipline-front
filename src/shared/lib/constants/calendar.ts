@@ -1,19 +1,17 @@
 import dayjs from "dayjs";
 
-type TCalendarDay = {
+type TCommonFields = {
   id: string;
   date: number;
   week: number;
   day: TDayOfWeek;
-  isEmpty?: false;
+  isToday: boolean;
+  isEmpty: boolean;
 };
 
-type TEmptyCalendarCell = {
-  id: string;
-  date: number;
-  week: number;
-  isEmpty: true;
-  day: TDayOfWeek;
+type TCalendarDay = TCommonFields;
+
+type TEmptyCalendarCell = TCommonFields & {
   isFromNextMonth?: boolean;
   isFromPreviousMonth?: boolean;
 };
@@ -82,6 +80,7 @@ const generateMonthCalendar = (
       week: 1,
       date,
       day: dayInPrevMonth.format("dddd") as TDayOfWeek,
+      isToday: dayInPrevMonth.isSame(dayjs(), "day"),
     });
   }
 
@@ -98,6 +97,7 @@ const generateMonthCalendar = (
       date,
       week,
       isEmpty: false,
+      isToday: currentDay.isSame(dayjs(), "day"),
     });
   }
 
@@ -116,6 +116,7 @@ const generateMonthCalendar = (
       week: lastWeek,
       date,
       day: dayInNextMonth.format("dddd") as TDayOfWeek,
+      isToday: dayInNextMonth.isSame(dayjs(), "day"),
     });
   }
 

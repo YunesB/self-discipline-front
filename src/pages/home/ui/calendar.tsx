@@ -30,10 +30,11 @@ export const Calendar: FC = () => {
   ]);
 
   return (
-    <div className="flex items-stretch gap-x-4">
+    <section className="flex items-stretch gap-x-4">
       <CommonButton icon={ChevronLeft} onClick={goToPreviousMonth} />
-      <ul className="grid grid-cols-7 gap-4">
-        {currentCalendar.map(({ id, isEmpty, date, day, week }) => (
+
+      <ul className="grid grid-cols-7 gap-4 animate-fade-in">
+        {currentCalendar.map(({ id, isEmpty, date, day, week, isToday }) => (
           <li
             key={id}
             className={cn(
@@ -41,6 +42,7 @@ export const Calendar: FC = () => {
               isEmpty
                 ? "bg-gray-50 text-gray-300"
                 : "bg-white text-gray-800 hover:ring-4 ring-blue-300 cursor-pointer",
+              isToday && "text-blue-400",
             )}
           >
             <h2 className="font-bold text-xl">{date}</h2>
@@ -51,7 +53,8 @@ export const Calendar: FC = () => {
           </li>
         ))}
       </ul>
+
       <CommonButton icon={ChevronRight} onClick={goToNextMonth} />
-    </div>
+    </section>
   );
 };
