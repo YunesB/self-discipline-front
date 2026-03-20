@@ -1,6 +1,7 @@
 import { sample, combine, createApi, createEvent, createStore } from "effector";
-import { createForm } from "effector-forms";
 import { spread } from "patronum";
+
+import { TCalendarValues } from "./types";
 
 import {
   MONTHS,
@@ -31,6 +32,7 @@ const goToPreviousMonth = createEvent();
 const gotoMonth = createEvent<TMonths>();
 const goToYear = createEvent<number>();
 const resetDate = createEvent();
+const handleDateSelection = createEvent<TCalendarValues>();
 
 $currentMonth.on(goToNextMonth, (currentMonth) => {
   const currentMonthIndex = MONTHS.indexOf(currentMonth);
@@ -64,39 +66,8 @@ sample({
 $currentMonth.on(gotoMonth, (_, month) => month).reset(resetDate);
 $currentYear.on(goToYear, (_, year) => year).reset(resetDate);
 
-const $$datesForm = createForm<{ year: number; month: TMonths }>({
-  fields: {
-    month: {
-      init: CURRENT_MONTH_NAME,
-      rules: [
-        {
-          name: "required",
-          validator: (value) => ({
-            errorText: "VALIDATION.REQUIRED",
-            isValid: !!value,
-          }),
-        },
-      ],
-    },
-    year: {
-      init: CURRENT_YEAR,
-      rules: [
-        {
-          name: "required",
-          validator: (value) => ({
-            errorText: "VALIDATION.REQUIRED",
-            isValid: !!value,
-          }),
-        },
-      ],
-    },
-  },
-  validateOn: ["submit"],
-});
-
 sample({
-  clock: $$datesForm.formValidated,
-  source: $$datesForm.$values,
+  clock: handleDateSelection,
   fn: ({ month, year }) => ({ month, year }),
   target: spread({
     month: gotoMonth,
@@ -105,7 +76,7 @@ sample({
 });
 
 sample({
-  clock: $$datesForm.formValidated,
+  clock: handleDateSelection,
   target: closeModal,
 });
 
@@ -124,5 +95,5 @@ export const $$calendarModel = {
   openModal,
   closeModal,
 
-  $$datesForm,
+  handleDateSelection,
 };

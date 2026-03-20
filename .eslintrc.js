@@ -7,4 +7,14 @@ module.exports = {
   parserOptions: {
     project: ["./tsconfig.json"],
   },
+  rules: {
+    "@typescript-eslint/no-misused-promises": [
+      2,
+      {
+        checksVoidReturn: {
+          attributes: false,
+        },
+      },
+    ],
+  },
 };

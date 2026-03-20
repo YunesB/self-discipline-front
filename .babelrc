@@ -3,7 +3,7 @@
     [
       "effector/babel-plugin",
       {
-        "factories": ["@withease/factories", "effector-forms"]
+        "factories": ["@withease/factories"]
       }
     ]
   ]
