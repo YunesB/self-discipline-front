@@ -1,10 +1,9 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 
 import dayjs from "dayjs";
 import { useUnit } from "effector-react";
 import { ClassNameValue } from "tailwind-merge";
 
-import { MOCK_HABITS } from "../lib";
 import { $$dashboardModel } from "../model";
 
 import { HOLIDAYS } from "@/shared/lib/constants/calendar";
@@ -26,7 +25,11 @@ const getPercentageColor = (percentage: number): ClassNameValue => {
 
 export const DashboardTable: FC = () => {
   const today = dayjs().date();
-  const [calendarByWeeks] = useUnit([$$dashboardModel.$calendarByWeeks]);
+  const [calendarByWeeks, habits, handleCheck] = useUnit([
+    $$dashboardModel.$calendarByWeeks,
+    $$dashboardModel.$habits,
+    $$dashboardModel.changeHabitState,
+  ]);
 
   return (
     <div className="p-4 rounded-xl bg-white max-w-full overflow-auto">
@@ -63,8 +66,8 @@ export const DashboardTable: FC = () => {
             ))}
           </tr>
           <tr>
-            {calendarByWeeks.map((week) => (
-              <>
+            {calendarByWeeks.map((week, id) => (
+              <Fragment key={id}>
                 {week.map(({ date, day }, dayIndex) => (
                   <th
                     key={dayIndex}
@@ -79,19 +82,19 @@ export const DashboardTable: FC = () => {
                     <p className="text-[10px] font-normal">{day.slice(0, 3)}</p>
                   </th>
                 ))}
-              </>
+              </Fragment>
             ))}
           </tr>
         </thead>
         <tbody>
-          {MOCK_HABITS.map(
-            ({ name, monthlyGoal, days, checkedDates }, index) => {
+          {habits.map(
+            ({ name, monthlyGoal, days, checkedDates, id: habitId }) => {
               const percentage = Math.round(
                 (checkedDates.length / monthlyGoal) * 100,
               );
 
               return (
-                <tr key={index}>
+                <tr key={habitId}>
                   <td
                     className={cn(COMMON_CLASSES, "whitespace-nowrap text-sm")}
                   >
@@ -125,7 +128,16 @@ export const DashboardTable: FC = () => {
                           <div className="flex items-center justify-center">
                             {hasCheckbox && (
                               <Checkbox
-                                defaultChecked={checkedDates.includes(date)}
+                                disabled={date > today}
+                                checked={checkedDates.includes(date)}
+                                onCheckedChange={() => {
+                                  console.log({ date, habitId });
+
+                                  handleCheck({
+                                    date,
+                                    habitId,
+                                  });
+                                }}
                               />
                             )}
                           </div>

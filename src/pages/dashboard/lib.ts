@@ -1,6 +1,7 @@
 import { TDayOfWeek } from "@/shared/lib/constants/calendar";
 
 export type THabit = {
+  id: string;
   name: string;
   color: string;
   days: TDayOfWeek[];
@@ -10,6 +11,7 @@ export type THabit = {
 
 export const MOCK_HABITS: THabit[] = [
   {
+    id: "habit-1",
     name: "Morning Routine",
     color: "#FF5733",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -19,6 +21,7 @@ export const MOCK_HABITS: THabit[] = [
     ],
   },
   {
+    id: "habit-2",
     name: "Exercise",
     color: "#33FF57",
     days: ["Monday", "Wednesday", "Friday"],
@@ -26,6 +29,7 @@ export const MOCK_HABITS: THabit[] = [
     checkedDates: [1, 3, 5, 8, 10, 12, 15, 17, 19, 22, 24, 26, 29],
   },
   {
+    id: "habit-3",
     name: "Reading",
     color: "#3357FF",
     days: ["Tuesday", "Thursday"],
@@ -33,6 +37,7 @@ export const MOCK_HABITS: THabit[] = [
     checkedDates: [2, 4, 9, 11, 16, 18, 23, 25, 30],
   },
   {
+    id: "habit-4",
     name: "Meditation",
     color: "#FF33A1",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -42,6 +47,7 @@ export const MOCK_HABITS: THabit[] = [
     ],
   },
   {
+    id: "habit-5",
     name: "Healthy Eating",
     color: "#33FFF6",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -51,6 +57,7 @@ export const MOCK_HABITS: THabit[] = [
     ],
   },
   {
+    id: "habit-6",
     name: "Sleep Schedule",
     color: "#F633FF",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -60,6 +67,7 @@ export const MOCK_HABITS: THabit[] = [
     ],
   },
   {
+    id: "habit-7",
     name: "Learning a New Skill",
     color: "#33FF9E",
     days: ["Monday", "Wednesday", "Friday"],
