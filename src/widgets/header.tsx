@@ -2,19 +2,13 @@ import { FC } from "react";
 
 import { Link } from "atomic-router-react";
 import { useUnit } from "effector-react";
-import { Award, UserRound } from "lucide-react";
+import { UserRound } from "lucide-react";
 
 import { LangSwitcher } from "@/entities/lang-switcher";
 
 import { NAV_LINKS } from "@/shared/lib/constants/nav";
 import { routes, $$routingModel } from "@/shared/routing/shared";
-
-const Logo: FC = () => (
-  <div className="flex items-center gap-x-2 text-blue-400">
-    <Award className="size-6" />
-    <p className="font-semibold">Self Discipline App</p>
-  </div>
-);
+import { Logo } from "@/shared/ui/atoms";
 
 export const Header: FC = () => {
   const [isHomePage] = useUnit([$$routingModel.$isHomePage]);

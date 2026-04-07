@@ -1,6 +1,8 @@
 import { Layout } from "@/layouts";
+import { AuthLayout } from "@/layouts/auth";
 import {
   HomePage,
+  LoginPage,
   HabitsPage,
   CalendarPage,
   NotFoundPage,
@@ -38,6 +40,13 @@ const CustomLayoutPages = [
   },
 ];
 
+const AuthLayoutPages = [
+  {
+    route: routes.login,
+    view: LoginPage,
+  },
+];
+
 const LayoutsMap = [
   {
     layout: Layout,
@@ -46,6 +55,10 @@ const LayoutsMap = [
   {
     layout: null,
     pages: CustomLayoutPages,
+  },
+  {
+    layout: AuthLayout,
+    pages: AuthLayoutPages,
   },
 ];
 

@@ -13,7 +13,7 @@ export const Layout: FC<TProps> = ({ children, className }) => {
   useLocale();
 
   return (
-    <div className="bg-gray-200 overflow-hidden flex flex-col h-screen">
+    <div className="overflow-hidden flex flex-col h-screen bg-gradient-to-b from-gray-100 to-blue-50">
       <Header />
       <main
         className={cn("flex-grow overflow-y-auto py-4 app-scroll", className)}

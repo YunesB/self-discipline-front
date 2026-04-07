@@ -1,4 +1,5 @@
 export * from "./tag";
+export * from "./logo";
 export * from "./card";
 export * from "./label";
 export * from "./sheet";
