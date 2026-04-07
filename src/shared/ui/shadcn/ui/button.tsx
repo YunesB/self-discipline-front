@@ -25,13 +25,13 @@ const buttonVariants = cva(
         ghost:
           "hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-50",
         default:
-          "bg-black text-white hover:opacity-70 dark:bg-white dark:text-slate-900 dark:hover:bg-white transition-all disabled:bg-gray-200 disabled:text-gray-600",
+          "bg-blue-500 text-white hover:opacity-70 dark:bg-white dark:text-slate-900 dark:hover:bg-white transition-all disabled:bg-gray-200 disabled:text-gray-600",
         destructive:
           "bg-red-500 text-slate-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-slate-50 dark:hover:bg-red-900/90",
         secondary:
           "bg-secondary text-white hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
         outline:
-          "border border-border bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 transition-all hover:bg-gray-100",
+          "border border-border bg-gray-100 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 transition-all hover:bg-gray-100",
       },
     },
   },
