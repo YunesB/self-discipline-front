@@ -2,11 +2,11 @@ import { FC } from "react";
 
 import { Link } from "atomic-router-react";
 import { useUnit } from "effector-react";
-import { UserRound } from "lucide-react";
 
 import { Nav } from "./nav";
 
 import { LangSwitcher } from "@/entities/lang-switcher";
+import { Profile } from "@/entities/profile";
 
 import { routes, $$routingModel } from "@/shared/routing/shared";
 import { Logo } from "@/shared/ui/atoms";
@@ -30,7 +30,7 @@ export const Header: FC = () => {
 
         <div className="flex items-center gap-x-4">
           <LangSwitcher />
-          <UserRound />
+          <Profile />
         </div>
       </div>
     </header>
