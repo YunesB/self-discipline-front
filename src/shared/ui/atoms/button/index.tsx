@@ -64,7 +64,7 @@ export const ActionButton: FC<
         ) : (
           <Trash className={ICON_CLASS} />
         )}
-        Удалить
+        Delete
       </Button>
     );
   }
@@ -83,7 +83,7 @@ export const ActionButton: FC<
         ) : (
           <Pencil className={ICON_CLASS} />
         )}
-        Редактировать
+        Edit
       </Button>
     );
   }

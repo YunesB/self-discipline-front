@@ -53,6 +53,16 @@ const CURRENT_MONTH_NAME: (typeof MONTHS)[number] = dayjs().format(
 ) as TMonths;
 const CURRENT_YEAR = dayjs().year();
 
+const WEEKDAYS_COLORS_MAP: Record<TDayOfWeek, string> = {
+  Monday: "bg-blue-100",
+  Tuesday: "bg-green-100",
+  Wednesday: "bg-yellow-100",
+  Thursday: "bg-purple-100",
+  Friday: "bg-pink-100",
+  Saturday: "bg-gray-100",
+  Sunday: "bg-red-100",
+};
+
 const generateMonthCalendar = (
   month: TMonths,
   year: number,
@@ -149,6 +159,18 @@ const getMonthByIndex = (index: number): TMonths => MONTHS[index] || "January";
 
 const getMonthIndex = (month: TMonths): number => MONTHS.indexOf(month);
 
+const getWeekDayColor = (day: string): string => {
+  const weekDay = WEEKDAYS.find((wd) =>
+    wd.toLowerCase().includes(day.toLowerCase()),
+  );
+
+  if (weekDay) {
+    return WEEKDAYS_COLORS_MAP[weekDay];
+  }
+
+  return "bg-gray-100";
+};
+
 export {
   MONTHS,
   WEEKDAYS,
@@ -156,12 +178,14 @@ export {
   CURRENT_YEAR,
   CALENDAR_DATA,
   CURRENT_MONTH_NAME,
+  WEEKDAYS_COLORS_MAP,
   CURRENT_MONTH_CALENDAR,
 };
 
 export {
   getMonthIndex,
   getMonthByIndex,
+  getWeekDayColor,
   getCurrentCalendar,
   generateMonthCalendar,
 };
