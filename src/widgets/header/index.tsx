@@ -4,9 +4,10 @@ import { Link } from "atomic-router-react";
 import { useUnit } from "effector-react";
 import { UserRound } from "lucide-react";
 
+import { Nav } from "./nav";
+
 import { LangSwitcher } from "@/entities/lang-switcher";
 
-import { NAV_LINKS } from "@/shared/lib/constants/nav";
 import { routes, $$routingModel } from "@/shared/routing/shared";
 import { Logo } from "@/shared/ui/atoms";
 
@@ -21,25 +22,10 @@ export const Header: FC = () => {
             <Logo />
           ) : (
             <Link to={routes.home}>
-              <Logo />
+              <Logo type="link" />
             </Link>
           )}
-
-          <nav>
-            <ul>
-              {NAV_LINKS.map(({ name, route }) => (
-                <li key={name} className="inline-block ml-6">
-                  <Link
-                    to={route}
-                    activeClassName="!text-blue-400 underline"
-                    className="text-gray-500 hover:opacity-70 text-sm"
-                  >
-                    {name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <Nav />
         </div>
 
         <div className="flex items-center gap-x-4">

@@ -6,10 +6,19 @@ import { cn } from "@/shared/lib/utils";
 
 type TProps = {
   className?: string;
+  type?: "link" | "default";
 };
 
-export const Logo: FC<TProps> = ({ className }) => (
-  <div className={cn("flex items-center gap-x-2 text-blue-400", className)}>
+export const Logo: FC<TProps> = ({ className, type = "default" }) => (
+  <div
+    className={cn(
+      "flex items-center gap-x-2",
+      type === "default"
+        ? "text-blue-500"
+        : "text-gray-400  hover:text-blue-500",
+      className,
+    )}
+  >
     <Award className="size-6" />
     <p className="font-semibold">Self Discipline App</p>
   </div>
