@@ -32,7 +32,7 @@ export const DashboardTable: FC = () => {
   ]);
 
   return (
-    <div className="p-4 rounded-xl bg-white max-w-full overflow-auto">
+    <div className="p-4 rounded-xl bg-white max-w-full overflow-auto animate-fade-in">
       <table className="w-full border-collapse border">
         <thead>
           <tr>

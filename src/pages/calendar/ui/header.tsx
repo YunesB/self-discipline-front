@@ -17,11 +17,11 @@ export const CalendarHeader: FC = () => {
 
   return (
     <div className="w-full flex items-center justify-between border-b border-gray-300 pb-4">
-      <h1 className="font-semibold text-center text-2xl">
+      <h1 className="font-semibold text-center text-2xl animate-slide-left">
         {currentMonth}, {currentYear}
       </h1>
 
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center gap-x-2 animate-slide-right">
         <Button size="icon" variant="outline" onClick={resetDate}>
           <CalendarSync />
         </Button>

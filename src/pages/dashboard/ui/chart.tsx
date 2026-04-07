@@ -20,7 +20,7 @@ export const Chart: FC = () => {
   const chartData = useUnit($$dashboardModel.$chartData);
 
   return (
-    <Card className="w-full">
+    <Card className="w-full animate-slide-down">
       <CardHeader>
         <CardTitle>Habits Progress Over Time</CardTitle>
       </CardHeader>

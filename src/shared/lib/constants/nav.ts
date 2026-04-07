@@ -17,12 +17,6 @@ type TNavLink = {
 
 const NAV_LINKS: TNavLink[] = [
   {
-    name: "Calendar",
-    icon: Calendar,
-    route: ROUTES.CALENDAR,
-    path: PATHS.CALENDAR,
-  },
-  {
     name: "Dashboard",
     icon: LayoutDashboard,
     route: ROUTES.DASHBOARD,
@@ -33,6 +27,12 @@ const NAV_LINKS: TNavLink[] = [
     icon: RefreshCcwDot,
     route: ROUTES.HABITS,
     path: PATHS.HABITS,
+  },
+  {
+    name: "Calendar",
+    icon: Calendar,
+    route: ROUTES.CALENDAR,
+    path: PATHS.CALENDAR,
   },
 ];
 
