@@ -15,6 +15,25 @@ type TProps = {
   onClose: VoidFunction;
 };
 
+const WEEKDAY_PRESETS = [
+  {
+    name: "Odd days",
+    value: WEEKDAYS.filter((_, i) => i % 2 === 0),
+  },
+  {
+    name: "Even days",
+    value: WEEKDAYS.filter((_, i) => i % 2 !== 0),
+  },
+  {
+    name: "Weekdays",
+    value: WEEKDAYS.filter((_, i) => i < 5),
+  },
+  {
+    name: "Weekends",
+    value: WEEKDAYS.filter((_, i) => i >= 5),
+  },
+];
+
 export const HabitForm: FC<TProps> = ({ onClose }) => {
   const { control, handleSubmit } = useForm<TFormValues>({
     defaultValues: {
@@ -55,18 +74,33 @@ export const HabitForm: FC<TProps> = ({ onClose }) => {
             name="weekDays"
             control={control}
             render={({ field: { value, onChange } }) => (
-              <ToggleGroup
-                value={value}
-                type="multiple"
-                onValueChange={onChange}
-                className="flex-wrap p-4 shadow-inner rounded-md border"
-              >
-                {WEEKDAYS.map((day) => (
-                  <ToggleGroupItem key={day} value={day}>
-                    {day}
-                  </ToggleGroupItem>
-                ))}
-              </ToggleGroup>
+              <div>
+                <ToggleGroup
+                  value={value}
+                  type="multiple"
+                  onValueChange={onChange}
+                  className="flex-wrap p-4 shadow-inner rounded-md border"
+                >
+                  {WEEKDAYS.map((day) => (
+                    <ToggleGroupItem key={day} value={day}>
+                      {day}
+                    </ToggleGroupItem>
+                  ))}
+                </ToggleGroup>
+                <ul className="flex flex-wrap gap-2 mt-4">
+                  {WEEKDAY_PRESETS.map(({ name, value }, index) => (
+                    <li key={index}>
+                      <button
+                        type="button"
+                        onClick={() => onChange(value)}
+                        className="p-2 bg-gray-100 text-black w-full text-xs rounded-md hover:bg-gray-200 transition-all border hover:border-blue-400"
+                      >
+                        {name}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
           />
         </div>
