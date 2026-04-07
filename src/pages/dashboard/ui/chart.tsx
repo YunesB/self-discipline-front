@@ -38,7 +38,10 @@ export const Chart: FC = () => {
             data={chartData}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid
+              vertical={false}
+              horizontalFill={["#f5f5f5", "#ffffff"]}
+            />
             <XAxis fontSize={12} dataKey="date" />
             <YAxis
               fontSize={12}

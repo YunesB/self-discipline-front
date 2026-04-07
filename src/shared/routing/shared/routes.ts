@@ -1,6 +1,9 @@
 import { createRoute } from "atomic-router";
 
-export const home = createRoute();
-export const authError = createRoute();
-export const calendar = createRoute();
-export const dashboard = createRoute();
+const home = createRoute();
+const authError = createRoute();
+const calendar = createRoute();
+const dashboard = createRoute();
+const habits = createRoute();
+
+export { home, habits, calendar, authError, dashboard };

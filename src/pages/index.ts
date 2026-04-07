@@ -1,4 +1,5 @@
 export { HomePage } from "./home";
+export { HabitsPage } from "./habits";
 export { CalendarPage } from "./calendar";
 export { NotFoundPage } from "./not-found";
 export { DashboardPage } from "./dashboard";

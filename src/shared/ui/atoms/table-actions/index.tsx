@@ -14,25 +14,23 @@ type TProps = {
   children: TChildren;
 };
 
-export const TableActions: FC<TProps> = ({ children }) => {
-  return (
-    <DropdownMenu>
-      <div className="flex items-center justify-end w-full">
-        <DropdownMenuTrigger asChild>
-          <Button className="h-8 w-8 p-0 rounded-full">
-            <span className="sr-only">Открыть меню</span>
-            <MoreHorizontal className="h-4 w-4" />
-          </Button>
-        </DropdownMenuTrigger>
-      </div>
+export const TableActions: FC<TProps> = ({ children }) => (
+  <DropdownMenu>
+    <div className="flex items-center justify-end w-full">
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" className="size-8 p-0 rounded-md">
+          <span className="sr-only">Открыть меню</span>
+          <MoreHorizontal className="size-4" />
+        </Button>
+      </DropdownMenuTrigger>
+    </div>
 
-      <DropdownMenuContent
-        align="end"
-        className="bg-white"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {children}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
-};
+    <DropdownMenuContent
+      align="end"
+      className="bg-white max-w-[200px]"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {children}
+    </DropdownMenuContent>
+  </DropdownMenu>
+);

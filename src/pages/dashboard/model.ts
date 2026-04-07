@@ -1,6 +1,6 @@
+import dayjs from "dayjs";
 import { sample, combine, createEvent, createStore } from "effector";
 
-import { MOCK_HABITS } from "./lib";
 import { TChartType } from "./types";
 
 import {
@@ -8,6 +8,7 @@ import {
   CURRENT_MONTH_NAME,
   generateMonthCalendar,
 } from "@/shared/lib/constants/calendar";
+import { MOCK_HABITS } from "@/shared/lib/mocks";
 import { routes } from "@/shared/routing/shared";
 import { chainAppLoaded } from "@/shared/routing/shared/app-loaded-chain";
 
@@ -93,6 +94,23 @@ sample({
   target: $habits,
 });
 
+const $dailyProgress = $habits.map((habits) => {
+  const today = dayjs().date();
+
+  const completedHabits = habits.filter(({ checkedDates }) =>
+    checkedDates.includes(today),
+  ).length;
+
+  const totalHabits = habits.length;
+  const progressPercentage =
+    totalHabits > 0 ? Math.round((completedHabits / totalHabits) * 100) : 0;
+
+  return {
+    date: today,
+    progress: progressPercentage,
+  };
+});
+
 export const $$dashboardModel = {
   appLoadedRoute,
   $currentMonth,
@@ -100,6 +118,7 @@ export const $$dashboardModel = {
   $currentCalendar,
   $calendarByWeeks,
   $chartData,
+  $dailyProgress,
 
   $habits,
   changeHabitState,

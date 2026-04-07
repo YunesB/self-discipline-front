@@ -1,6 +1,7 @@
 import { Layout } from "@/layouts";
 import {
   HomePage,
+  HabitsPage,
   CalendarPage,
   NotFoundPage,
   DashboardPage,
@@ -23,6 +24,10 @@ const CommonLayoutPages = [
   {
     route: routes.dashboard,
     view: DashboardPage,
+  },
+  {
+    route: routes.habits,
+    view: HabitsPage,
   },
 ];
 

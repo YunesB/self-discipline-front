@@ -1,23 +1,27 @@
 import { FC } from "react";
 
 import { Link } from "atomic-router-react";
-import { HomeIcon } from "lucide-react";
 
 import { routes } from "@/shared/routing/shared";
+
+const LINKS = [
+  { name: "Calendar", to: routes.calendar },
+  { name: "Dashboard", to: routes.dashboard },
+  { name: "Habits", to: routes.habits },
+];
 
 export const HomePage: FC = () => {
   return (
     <div className="flex items-center flex-col gap-y-4 justify-center size-full">
-      <HomeIcon
-        strokeWidth={1}
-        className="size-32 text-blue-400 animate-slide-down"
-      />
-      <Link to={routes.calendar} className="underline">
-        Calendar
-      </Link>
-      <Link to={routes.dashboard} className="underline">
-        Dashboard
-      </Link>
+      <ul className="flex flex-col items-center justify-center gap-4  bg-white px-4 py-12 rounded-lg shadow-md min-w-60">
+        {LINKS.map(({ name, to }) => (
+          <li key={name}>
+            <Link to={to} className="underline">
+              {name}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

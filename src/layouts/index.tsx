@@ -18,7 +18,7 @@ export const Layout: FC<TProps> = ({ children, className }) => {
       <main
         className={cn("flex-grow overflow-y-auto py-4 app-scroll", className)}
       >
-        <div className="max-w-screen-xl mx-auto w-full px-4">{children}</div>
+        <div className="max-w-screen-xl mx-auto size-full px-4">{children}</div>
       </main>
     </div>
   );

@@ -1,4 +1,4 @@
-import { TDayOfWeek } from "@/shared/lib/constants/calendar";
+import { TDayOfWeek } from "../constants/calendar";
 
 export type THabit = {
   id: string;

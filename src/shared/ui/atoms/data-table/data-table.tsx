@@ -11,8 +11,10 @@ import {
   getSortedRowModel,
   getPaginationRowModel,
 } from "@tanstack/react-table";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import { Button } from "../../shadcn/ui/button";
+import { LoaderIcon } from "../loader-icon";
 import {
   Table,
   TableRow,
@@ -22,8 +24,13 @@ import {
   TableHeader,
 } from "./table";
 
+import { cn } from "@/shared/lib/utils";
+
 type DataTableProps<TData, TValue> = {
   data: TData[];
+  className?: string;
+  isLoading?: boolean;
+  simplePagination?: boolean;
   onRowClick?: (v: TData) => void;
   columns: ColumnDef<TData, TValue>[];
 };
@@ -32,6 +39,9 @@ export function DataTable<TData, TValue>({
   data,
   columns,
   onRowClick,
+  className,
+  simplePagination = false,
+  isLoading = false,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = useState<SortingState>([]);
 
@@ -49,7 +59,13 @@ export function DataTable<TData, TValue>({
 
   return (
     <>
-      <div className="rounded-md border">
+      <div
+        className={cn(
+          "rounded-md border relative",
+          isLoading && "min-h-[30vh]",
+          className,
+        )}
+      >
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -102,25 +118,33 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
+
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center bg-white/50 rounded-md animate-pulse">
+            <LoaderIcon className="size-12 text-brand" />
+          </div>
+        )}
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          Пред.
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          След.
-        </Button>
-      </div>
+      {simplePagination && (
+        <div className="flex items-center justify-end space-x-2 py-4">
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          <Button
+            size="icon"
+            variant="outline"
+            onClick={() => table.nextPage()}
+            disabled={!table.getCanNextPage()}
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </div>
+      )}
     </>
   );
 }
