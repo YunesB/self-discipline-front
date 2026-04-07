@@ -1,5 +1,6 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
+import { cn } from "@/shared/lib/utils";
 import {
   SheetTitle,
   SheetFooter,
@@ -11,12 +12,12 @@ import {
 
 type TProps = {
   isOpen: boolean;
+  footer?: ReactNode;
+  className?: string;
+  children: ReactNode;
   onClose: VoidFunction;
-  contentClasses?: string;
   title?: string | JSX.Element;
   description?: string | JSX.Element;
-  footer?: JSX.Element | JSX.Element[];
-  children: JSX.Element | JSX.Element[];
 };
 
 export const Sheet: FC<TProps> = ({
@@ -25,14 +26,14 @@ export const Sheet: FC<TProps> = ({
   children,
   description,
   isOpen = false,
-  contentClasses,
+  className,
   onClose = () => null,
 }) => {
   return (
     <ShaSheet open={isOpen}>
       <SheetContent
         onClose={onClose}
-        className={`sm:max-w-none ${contentClasses}`}
+        className={cn("sm:max-w-none", className)}
       >
         <SheetHeader>
           {title && <SheetTitle>{title}</SheetTitle>}
