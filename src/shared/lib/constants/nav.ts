@@ -2,6 +2,7 @@ import { RouteInstance } from "atomic-router";
 import {
   Calendar,
   LucideIcon,
+  NotebookPen,
   RefreshCcwDot,
   LayoutDashboard,
 } from "lucide-react";
@@ -33,6 +34,12 @@ const NAV_LINKS: TNavLink[] = [
     icon: Calendar,
     route: ROUTES.CALENDAR,
     path: PATHS.CALENDAR,
+  },
+  {
+    name: "Journal",
+    icon: NotebookPen,
+    route: ROUTES.JOURNAL,
+    path: PATHS.JOURNAL,
   },
 ];
 

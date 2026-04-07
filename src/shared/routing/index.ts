@@ -4,6 +4,7 @@ import {
   HomePage,
   LoginPage,
   HabitsPage,
+  JournalPage,
   CalendarPage,
   NotFoundPage,
   DashboardPage,
@@ -30,6 +31,10 @@ const CommonLayoutPages = [
   {
     route: routes.habits,
     view: HabitsPage,
+  },
+  {
+    route: routes.journal,
+    view: JournalPage,
   },
 ];
 

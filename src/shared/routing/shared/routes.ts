@@ -7,13 +7,6 @@ const authError = createRoute();
 const calendar = createRoute();
 const dashboard = createRoute();
 const habits = createRoute();
+const journal = createRoute();
 
-export {
-  home,
-  login,
-  habits,
-  //
-  calendar,
-  authError,
-  dashboard,
-};
+export { home, login, habits, journal, calendar, authError, dashboard };
