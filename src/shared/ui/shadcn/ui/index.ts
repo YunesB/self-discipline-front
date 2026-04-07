@@ -19,5 +19,6 @@ export * from "./checkbox";
 export * from "./accordion";
 export * from "./pagination";
 export * from "./collapsible";
+export * from "./radio-group";
 export * from "./toggle-group";
 export * from "./dropdown-menu";
