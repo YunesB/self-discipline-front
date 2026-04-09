@@ -6,10 +6,11 @@ import type {
 } from "react-hot-toast";
 import toast from "react-hot-toast";
 
-import clsx from "clsx";
 import { X } from "lucide-react";
 
 import { SETTINGS } from "./lib";
+
+import { cn } from "@/shared/lib/utils";
 
 export const createNotificationComponent = ({
   type: _type,
@@ -30,12 +31,9 @@ export const createNotificationComponent = ({
 
     return (
       <div
-        role="button"
-        tabIndex={-1}
         data-visible={visible}
-        // eslint-disable-next-line
-        className={clsx(
-          "flex cursor-default flex-col gap-y-2 rounded-lg border px-3 py-2 shadow-md",
+        className={cn(
+          "flex cursor-default flex-col gap-y-2 rounded-lg border px-3 py-2 shadow-md animate-slide-up",
           color,
         )}
       >
@@ -45,8 +43,13 @@ export const createNotificationComponent = ({
             <p>{message}</p>
           </div>
           <button
-            onClick={() => toast.dismiss(id)}
+            type="button"
             className="hover:text-unset flex size-4 items-center justify-center hover:bg-transparent hover:opacity-70"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              toast.dismiss(id);
+            }}
           >
             <X className="text-gray-500" />
           </button>

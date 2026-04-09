@@ -43,6 +43,7 @@ module.exports = {
         "scale-in": "scale-in 0.3s ease-out",
         "fade-in": "fade-in 0.4s ease-in-out",
         "slide-down": "slide-down 0.4s ease-in-out",
+        "slide-up": "slide-up 0.4s ease-in-out",
         "slide-left": "slide-left 0.4s ease-in-out",
         "slide-right": "slide-right 0.4s ease-in-out",
         "accordion-up": "accordion-up 0.2s ease-out",
@@ -88,6 +89,16 @@ module.exports = {
           from: {
             opacity: 0,
             transform: "translateY(-20px)",
+          },
+        },
+        "slide-up": {
+          to: {
+            opacity: 1,
+            transform: "translateY(0)",
+          },
+          from: {
+            opacity: 0,
+            transform: "translateY(20px)",
           },
         },
         "slide-left": {

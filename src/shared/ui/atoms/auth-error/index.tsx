@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
-import { Layout } from "@/layouts";
+import { AuthLayout } from "@/layouts/auth";
 import { Link } from "atomic-router-react";
 import { ShieldX } from "lucide-react";
 
@@ -13,8 +13,8 @@ export const AuthError: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Layout mainTagClasses="bg-pink-100/50">
-      <div className="size-full flex items-center justify-center pb-[200px] animate-slide-down">
+    <AuthLayout>
+      <div className="size-full flex items-center justify-center animate-slide-down">
         <RoundedBox className="w-[90%] max-w-[400px] px-4 py-7 flex flex-col items-center justify-center text-center">
           <ShieldX className="size-12 mb-4 text-red-500" />
           <h1 className="text-2xl font-semibold">{t("AUTH.TITLE")}</h1>
@@ -27,6 +27,6 @@ export const AuthError: FC = () => {
           </Link>
         </RoundedBox>
       </div>
-    </Layout>
+    </AuthLayout>
   );
 };

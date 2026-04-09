@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { LoaderCircle } from "lucide-react";
+import { Loader } from "lucide-react";
 
 import { cn } from "@/shared/lib/utils";
 
@@ -9,5 +9,5 @@ type TProps = {
 };
 
 export const LoaderIcon: FC<TProps> = ({ className }) => (
-  <LoaderCircle className={cn("size-6 animate-spin", className)} />
+  <Loader className={cn("size-6 animate-spin", className)} />
 );

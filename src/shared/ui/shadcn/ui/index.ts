@@ -11,6 +11,7 @@ export * from "./select";
 export * from "./dialog";
 export * from "./slider";
 export * from "./toggle";
+export * from "./slider";
 export * from "./popover";
 export * from "./skeleton";
 export * from "./carousel";

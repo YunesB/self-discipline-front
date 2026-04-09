@@ -8,6 +8,7 @@ import { $$dashboardModel } from "../model";
 
 import { HOLIDAYS } from "@/shared/lib/constants/calendar";
 import { cn } from "@/shared/lib/utils";
+import { RoundedBox } from "@/shared/ui/atoms";
 import { Checkbox } from "@/shared/ui/shadcn";
 
 const COMMON_CLASSES = "p-4 border border-collapse";
@@ -32,7 +33,7 @@ export const DashboardTable: FC = () => {
   ]);
 
   return (
-    <div className="p-4 rounded-xl bg-white max-w-full overflow-auto animate-fade-in">
+    <RoundedBox tag="section" className="overflow-auto">
       <table className="w-full border-collapse border">
         <thead>
           <tr>
@@ -151,6 +152,6 @@ export const DashboardTable: FC = () => {
           )}
         </tbody>
       </table>
-    </div>
+    </RoundedBox>
   );
 };

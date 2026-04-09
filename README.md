@@ -33,3 +33,10 @@ export default {
 
 1. Journaling
 2. Dopamine detox plan
+3. Priorities (Relationships, family, friends / Work, career, craft, art / Hobbies, health, self-love / Experiences, trips, learning, religion)
+4. Year goals / anti-goals
+5. Letter to your future self
+6. Vision board ???
+7. Habit weight
+8. Rate your day
+9. Destructive habits

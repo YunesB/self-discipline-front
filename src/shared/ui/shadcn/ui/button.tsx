@@ -31,7 +31,7 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-white hover:bg-slate-100/80 dark:bg-slate-800 dark:text-slate-50 dark:hover:bg-slate-800/80",
         outline:
-          "border border-border bg-gray-100 hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 transition-all hover:bg-gray-100",
+          "border border-border bg-white hover:bg-slate-100 hover:text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:hover:bg-slate-800 dark:hover:text-slate-50 transition-all hover:bg-gray-100",
       },
     },
   },
