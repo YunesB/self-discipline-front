@@ -10,7 +10,7 @@ export const Renderer: FC = () => {
   return (
     <div className="flex items-stretch gap-4">
       <WritingArea />
-      <RoundedBox tag="section">
+      <RoundedBox tag="section" className="animate-slide-right">
         <DayRate />
         <hr className="my-6" />
         <WeekRateChart />

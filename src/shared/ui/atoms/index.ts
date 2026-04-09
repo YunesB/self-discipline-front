@@ -8,6 +8,7 @@ export * from "./drawer";
 export * from "./button";
 export * from "./dialog";
 export * from "./divider";
+export * from "./heading";
 export * from "./otp-input";
 export * from "./auth-error";
 export * from "./pagination";

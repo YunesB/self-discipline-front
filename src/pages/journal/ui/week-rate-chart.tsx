@@ -5,6 +5,7 @@ import { Area, XAxis, YAxis, AreaChart, CartesianGrid } from "recharts";
 
 import { $$journalModel } from "../model";
 
+import { Heading } from "@/shared/ui/atoms";
 import {
   ChartTooltip,
   ChartContainer,
@@ -22,7 +23,7 @@ export const WeekRateChart: FC = () => {
   return (
     <div className="w-full space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Weekly Rating</h2>
+        <Heading>Weekly Rating</Heading>
 
         <p className="bg-gray-100 rounded-md px-3 py-1 text-sm">
           Average rating:{" "}

@@ -7,7 +7,7 @@ import { Meh, Frown, Smile } from "lucide-react";
 import { $$journalModel } from "../model";
 
 import { cn } from "@/shared/lib/utils";
-import { LoaderIcon, openSuccessToast } from "@/shared/ui/atoms";
+import { Heading, LoaderIcon, openSuccessToast } from "@/shared/ui/atoms";
 import { Slider } from "@/shared/ui/shadcn";
 
 const TODAY = dayjs().format("DD.MM.YYYY");
@@ -34,7 +34,7 @@ export const DayRate: FC = () => {
   return (
     <div className="space-y-4 w-full">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Rate your day ({TODAY})</h2>
+        <Heading>Rate your day ({TODAY})</Heading>
         <p className="rounded-full bg-blue-500 text-white font-semibold text-lg size-10 flex items-center justify-center shadow-lg">
           {rate}
         </p>
