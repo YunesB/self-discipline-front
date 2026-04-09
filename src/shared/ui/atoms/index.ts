@@ -19,6 +19,7 @@ export * from "./loader-icon";
 export * from "./page-loader";
 export * from "./rounded-box";
 export * from "./page-header";
+export * from "./rounded-box";
 export * from "./notifications";
 export * from "./table-actions";
 export * from "../molecules/input";
