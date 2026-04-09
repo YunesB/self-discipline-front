@@ -14,7 +14,7 @@ export const RoundedBox: FC<TProps> = ({
 }) => (
   <Tag
     className={cn(
-      "p-4 rounded-xl bg-white max-w-full animate-fade-in",
+      "p-4 rounded-xl bg-white w-full max-w-full animate-fade-in",
       className,
     )}
   >

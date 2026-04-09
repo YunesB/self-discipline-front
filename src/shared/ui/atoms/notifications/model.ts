@@ -8,7 +8,7 @@ import { createNotificationComponent } from "./ui";
 
 const notifyFx = createEffect((options: TOptions) => {
   const Component = createNotificationComponent(options);
-  toast.custom(Component, { position: "bottom-left" });
+  toast.custom(Component, { position: "bottom-center", duration: 3000 });
 });
 
 export const success = createEvent<string | TAction>();
