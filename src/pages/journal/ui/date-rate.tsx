@@ -1,10 +1,13 @@
 import { FC, useState } from "react";
 
 import dayjs from "dayjs";
+import { useUnit } from "effector-react";
 import { Meh, Frown, Smile } from "lucide-react";
 
+import { $$journalModel } from "../model";
+
 import { cn } from "@/shared/lib/utils";
-import { LoaderIcon, RoundedBox, openSuccessToast } from "@/shared/ui/atoms";
+import { LoaderIcon, openSuccessToast } from "@/shared/ui/atoms";
 import { Slider } from "@/shared/ui/shadcn";
 
 const TODAY = dayjs().format("DD.MM.YYYY");
@@ -16,19 +19,20 @@ const RATES = [
 
 export const DayRate: FC = () => {
   const [rate, setRate] = useState(7);
+  const changeRating = useUnit($$journalModel.changeTodaysRating);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSave = (rate: string) => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      console.log(`Saved rate: ${rate} for ${TODAY}`);
+      changeRating(Number(rate));
       openSuccessToast("Day rate saved successfully!");
     }, 1000);
   };
 
   return (
-    <RoundedBox className="space-y-4">
+    <div className="space-y-4 w-full">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Rate your day ({TODAY})</h2>
         <p className="rounded-full bg-blue-500 text-white font-semibold text-lg size-10 flex items-center justify-center shadow-lg">
@@ -60,6 +64,6 @@ export const DayRate: FC = () => {
           </div>
         )}
       </div>
-    </RoundedBox>
+    </div>
   );
 };
