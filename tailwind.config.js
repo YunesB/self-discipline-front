@@ -37,7 +37,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        brand: "#FFFF",
+        brand: "#3b82f5",
       },
       animation: {
         "scale-in": "scale-in 0.3s ease-out",

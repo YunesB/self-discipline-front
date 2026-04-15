@@ -35,7 +35,7 @@ export const DayRate: FC = () => {
     <div className="space-y-4 w-full">
       <div className="flex items-center justify-between">
         <Heading>Rate your day ({TODAY})</Heading>
-        <p className="rounded-full bg-blue-500 text-white font-semibold text-lg size-10 flex items-center justify-center shadow-lg">
+        <p className="rounded-full bg-brand text-white font-semibold text-lg size-10 flex items-center justify-center shadow-lg">
           {rate}
         </p>
       </div>

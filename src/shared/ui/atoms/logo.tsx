@@ -13,9 +13,7 @@ export const Logo: FC<TProps> = ({ className, type = "default" }) => (
   <div
     className={cn(
       "flex items-center gap-x-2",
-      type === "default"
-        ? "text-blue-500"
-        : "text-gray-400  hover:text-blue-500",
+      type === "default" ? "text-brand" : "text-gray-400  hover:text-brand",
       className,
     )}
   >

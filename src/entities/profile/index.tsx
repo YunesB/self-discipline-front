@@ -17,7 +17,7 @@ export const Profile: FC = () => {
       <PopoverTrigger>
         <UserRound
           className={
-            isOpen ? "text-blue-500" : "text-gray-600 hover:text-gray-800"
+            isOpen ? "text-brand" : "text-gray-600 hover:text-gray-800"
           }
         />
       </PopoverTrigger>

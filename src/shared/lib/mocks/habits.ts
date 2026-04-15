@@ -7,6 +7,7 @@ export type THabit = {
   days: TDayOfWeek[];
   monthlyGoal: number;
   checkedDates: number[];
+  isDestructive: boolean;
 };
 
 export const MOCK_HABITS: THabit[] = [
@@ -16,6 +17,7 @@ export const MOCK_HABITS: THabit[] = [
     color: "#FF5733",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     monthlyGoal: 20,
+    isDestructive: false,
     checkedDates: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
     ],
@@ -26,6 +28,7 @@ export const MOCK_HABITS: THabit[] = [
     color: "#33FF57",
     days: ["Monday", "Wednesday", "Friday"],
     monthlyGoal: 15,
+    isDestructive: false,
     checkedDates: [1, 3, 5, 8, 10, 12, 15, 17, 19, 22, 24, 26, 29],
   },
   {
@@ -34,6 +37,7 @@ export const MOCK_HABITS: THabit[] = [
     color: "#3357FF",
     days: ["Tuesday", "Thursday"],
     monthlyGoal: 10,
+    isDestructive: false,
     checkedDates: [2, 4, 9, 11, 16, 18, 23, 25, 30],
   },
   {
@@ -42,6 +46,7 @@ export const MOCK_HABITS: THabit[] = [
     color: "#FF33A1",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     monthlyGoal: 25,
+    isDestructive: false,
     checkedDates: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
     ],
@@ -52,6 +57,7 @@ export const MOCK_HABITS: THabit[] = [
     color: "#33FFF6",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     monthlyGoal: 30,
+    isDestructive: false,
     checkedDates: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
     ],
@@ -62,6 +68,7 @@ export const MOCK_HABITS: THabit[] = [
     color: "#F633FF",
     days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     monthlyGoal: 28,
+    isDestructive: false,
     checkedDates: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     ],
@@ -72,6 +79,28 @@ export const MOCK_HABITS: THabit[] = [
     color: "#33FF9E",
     days: ["Monday", "Wednesday", "Friday"],
     monthlyGoal: 12,
+    isDestructive: false,
     checkedDates: [1, 3, 5, 8, 10, 12, 15, 17, 19, 22, 24],
+  },
+];
+
+export const DESTRUCTIVE_HABITS: THabit[] = [
+  {
+    id: "habit-8",
+    name: "Smoking",
+    color: "#FF3333",
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    monthlyGoal: 0,
+    isDestructive: true,
+    checkedDates: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  },
+  {
+    id: "habit-9",
+    name: "Excessive Screen Time",
+    color: "#FF5733",
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    monthlyGoal: 0,
+    isDestructive: true,
+    checkedDates: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   },
 ];

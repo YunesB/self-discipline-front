@@ -12,7 +12,7 @@ export const HomePage: FC = () => (
         <li key={name} className="w-full">
           <Link
             to={route}
-            className="p-2 w-full bg-gray-100 rounded-md flex items-center justify-between hover:text-blue-500 hover:bg-blue-50 transition-all hover:pr-0"
+            className="p-2 w-full bg-gray-100 rounded-md flex items-center justify-between hover:text-brand hover:bg-blue-50 transition-all hover:pr-0"
           >
             <div>
               <Icon className="inline-block mr-2 size-4" />

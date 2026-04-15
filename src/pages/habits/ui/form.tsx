@@ -2,13 +2,14 @@ import { FC } from "react";
 import { useForm, Controller } from "react-hook-form";
 
 import { WEEKDAYS, TDayOfWeek } from "@/shared/lib/constants/calendar";
-import { Input, Label, Button } from "@/shared/ui/atoms";
+import { Input, Label, Button, Switch } from "@/shared/ui/atoms";
 import { ToggleGroup, ToggleGroupItem } from "@/shared/ui/shadcn";
 
 type TFormValues = {
   name: string;
   goal: number;
   weekDays: TDayOfWeek[];
+  isDestructive?: boolean;
 };
 
 type TProps = {
@@ -65,6 +66,18 @@ export const HabitForm: FC<TProps> = ({ onClose }) => {
           control={control}
           render={({ field }) => (
             <Input label="Goal" type="number" {...field} />
+          )}
+        />
+
+        <Controller
+          control={control}
+          name="isDestructive"
+          render={({ field: { value, onChange } }) => (
+            <Switch
+              checked={value}
+              onCheckedChange={onChange}
+              label="Is habit destructive?"
+            />
           )}
         />
 
